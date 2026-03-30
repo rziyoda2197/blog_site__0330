@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %} 
+{% block title %}Search{% endblock %} 
+{% block content %} 
+<h1>Search</h1> 
+<form method="get"> 
+{{ form.as_p }} 
+<input type="submit" value="Search"> 
+</form> 
+<div style="clear:both"></div> 
+{% if query %} 
+<h2>Results for "{{ query }}"</h2> 
+{% for post in results %} 
+<h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3> 
+{% empty %} 
+<p>Hech narsa topilmadi.</p> 
+{% endfor %} 
+{% endif %} 
+{% endblock %} 
